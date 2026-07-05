@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANDU COMPUTER | Tech & CCTV Security Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0d6efd;
+            --dark-bg: #111111;
+            --accent-orange: #fd7e14;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; }
+        .navbar-dark { background-color: var(--dark-bg); }
+        .btn-accent { background-color: var(--accent-orange); color: white; font-weight: 600; }
+        .btn-accent:hover { background-color: #e06d0f; color: white; }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1557863789-3ae626832960?q=80&w=1920') no-repeat center center/cover;
+            padding: 120px 0;
+            color: white;
+        }
+        .product-card { transition: transform 0.2s, box-shadow 0.2s; border: none; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .view-section { display: none; }
+        .view-section.active { display: block; }
+        .badge-status { font-size: 0.85rem; padding: 0.4em 0.8em; }
+    </style>
+</head>
+<body>
+
+<div class="bg-primary text-white py-2 d-none d-md-block">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div>
+            <i class="fas fa-map-marker-alt me-2"></i> Bishoftu, Ethiopia
+            <span class="ms-3"><i class="fas fa-phone me-1"></i> 0985959697 / 0918109779</span>
+        </div>
+        <div>
+            <a href="https://t.me/adsecurtycamera" target="_blank" class="text-white me-3 text-decoration-none"><i class="fab fa-telegram me-1"></i> @adsecurtycamera</a>
+            <span class="badge bg-warning text-dark fw-bold">አማርኛ / EN</span>
+        </div>
+    </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-3 text-uppercase" href="#" onclick="switchView('home')">
+            <span class="text-primary">Andu</span> Computer
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center gap-2">
+                <li class="nav-item"><a class="nav-link" href="#" onclick="switchView('home')">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="switchView('shop')">Shop Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="switchView('repair')">Book Repair/CCTV</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="switchView('orders')">Track Orders</a></li>
+                <li class="nav-item"><a class="nav-link text-danger fw-bold" href="#" onclick="switchView('admin')"><i class="fas fa-user-shield"></i> Admin Panel</a></li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-warning position-relative px-3" onclick="switchView('cart')">
+                        <i class="fas fa-shopping-cart"></i> Cart
+                        <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="view-home" class="view-section active">
+    <header class="hero-section text-center text-md-start">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2 text-uppercase fw-bold"><i class="fas fa-shield-alt me-2"></i>Computers & Security System Specialist</span>
+                    <h1 class="display-3 fw-bold mb-3">Premium Hardware & <br><span class="text-primary">Smart CCTV Systems</span></h1>
+                    <p class="lead mb-4 text-light-50">High-performance laptops, professional desktop environments, high-definition security camera distributions, and expert hardware repairs directly out of Bishoftu.</p>
+                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
+                        <button class="btn btn-primary btn-lg px-4 fw-bold shadow" onclick="switchView('shop')">Browse Store</button>
+                        <button class="btn btn-accent btn-lg px-4 shadow" onclick="switchView('repair')">Book Installation / Repair</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="container my-5 text-center">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card p-4 h-100 shadow-sm border-0">
+                    <div class="text-primary mb-3"><i class="fas fa-laptop-code fa-3x"></i></div>
+                    <h4 class="fw-bold">Laptops & PCs</h4>
+                    <p class="text-muted small mb-0">High-performance custom gaming desktops, official business laptops, and accessories.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4 h-100 shadow-sm border-0">
+                    <div class="text-success mb-3"><i class="fas fa-video fa-3x"></i></div>
+                    <h4 class="fw-bold">CCTV Integrations</h4>
+                    <p class="text-muted small mb-0">High Definition night-vision security cameras, multi-channel DVR systems, remote smartphone monitoring config.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4 h-100 shadow-sm border-0">
+                    <div class="text-danger mb-3"><i class="fas fa-wrench fa-3x"></i></div>
+                    <h4 class="fw-bold">Expert Repairs</h4>
+                    <p class="text-muted small mb-0">Chip-level diagnostics, clean operating system setups, and robust field maintenance structures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div id="view-shop" class="view-section container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+        <div>
+            <h2 class="fw-bold mb-0">Product Showroom</h2>
+            <p class="text-muted mb-0">Instant delivery options inside Addis Ababa, Bishoftu, and regional environments.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <button class="btn btn-sm btn-outline-dark" onclick="filterCategory('all')">All</button>
+            <button class="btn btn-sm btn-outline-dark" onclick="filterCategory('computer')">Computers</button>
+            <button class="btn btn-sm btn-outline-dark" onclick="filterCategory('cctv')">CCTV & Security</button>
+        </div>
+    </div>
+    <div class="row g-4" id="product-grid"></div>
+</div>
+
+<div id="view-repair" class="view-section container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow p-4 border-0">
+                <h2 class="fw-bold text-center mb-3"><i class="fas fa-tools text-primary me-2"></i>Service Booking Order</h2>
+                <form id="repairForm" onsubmit="handleRepairSubmit(event)">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Select Service Category</label>
+                        <select class="form-select shadow-sm" id="serviceType" required>
+                            <option value="Laptop Hardware Repair">Laptop Hardware Repair / Diagnostics</option>
+                            <option value="OS Installation / System Software">Windows / OS Clean Installation & Softwares</option>
+                            <option value="CCTV Security Setup Architecture">CCTV Camera Installation & Mapping</option>
+                            <option value="Network Infrastructure Deployment">Office Networking Setup & Configuration</option>
+                        </select>
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Your Full Name</label>
+                            <input type="text" class="form-control shadow-sm" id="clientName" required placeholder="e.g. Abebe Kebede">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">Phone Number</label>
+                            <input type="tel" class="form-control shadow-sm" id="clientPhone" required placeholder="09xxxxxxxx">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Problem Description / Site Details</label>
+                        <textarea class="form-control shadow-sm" id="issueDescription" rows="4" required placeholder="Describe your computer problem or details..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold shadow">Submit Ticket Reservation</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="view-cart" class="view-section container my-5">
+    <h2 class="fw-bold mb-4"><i class="fas fa-shopping-bag text-warning me-2"></i>Your Shopping Cart</h2>
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="card p-3 shadow-sm border-0 mb-3" id="cart-items-container"></div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card p-4 shadow-sm border-0 bg-white">
+                <h4 class="fw-bold mb-3">Order Summary</h4>
+                <div class="d-flex justify-content-between mb-2 fs-5">
+                    <span>Total Cost:</span>
+                    <span class="fw-bold text-primary" id="cart-total-price">0 ETB</span>
+                </div>
+                <hr>
+                <form id="checkoutForm" onsubmit="handleCheckout(event)">
+                    <h5 class="fw-bold text-secondary mb-3">Delivery Information</h5>
+                    <div class="mb-2"><input type="text" id="orderName" class="form-control shadow-sm" placeholder="Full Name" required></div>
+                    <div class="mb-2"><input type="tel" id="orderPhone" class="form-control shadow-sm" placeholder="Phone Number" required></div>
+                    <div class="mb-3">
+                        <select id="orderPayment" class="form-select shadow-sm" required>
+                            <option value="Telebirr Transfer">Telebirr Wallet Payment</option>
+                            <option value="CBE Birr Transfer">CBE Birr / Bank Transfer</option>
+                            <option value="Cash on Delivery">Cash on Delivery</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-accent w-100 py-2">Confirm & Place Purchase Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="view-orders" class="view-section container my-5">
+    <h2 class="fw-bold mb-4"><i class="fas fa-receipt text-primary me-2"></i>Live Track Center</h2>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm border-0 h-100">
+                <h4 class="fw-bold text-primary mb-3"><i class="fas fa-shopping-cart me-2"></i>Product Purchases</h4>
+                <div id="track-purchases-list" class="list-group list-group-flush"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card p-4 shadow-sm border-0 h-100">
+                <h4 class="fw-bold text-success mb-3"><i class="fas fa-tools me-2"></i>Repair & CCTV Tickets</h4>
+                <div id="track-repairs-list" class="list-group list-group-flush"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="view-admin" class="view-section container my-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card p-4 shadow-sm border-0 bg-dark text-white mb-4">
+                <h4 class="fw-bold mb-3"><i class="fas fa-plus-circle text-warning me-2"></i>Add New Product</h4>
+                <form id="addProductForm" onsubmit="handleNewProduct(event)">
+                    <div class="mb-2">
+                        <label class="form-label text-light small">Product Title</label>
+                        <input type="text" id="newProdTitle" class="form-control form-control-sm" required placeholder="e.g., Core i7 Dell Laptop">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label text-light small">Price (ETB)</label>
+                        <input type="number" id="newProdPrice" class="form-control form-control-sm" required placeholder="e.g., 45000">
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label text-light small">Category</label>
+                        <select id="newProdCat" class="form-select form-select-sm">
+                            <option value="computer">Computer</option>
+                            <option value="cctv">CCTV & Security</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-light small">Image URL</label>
+                        <input type="text" id="newProdImg" class="form-control form-control-sm" placeholder="Paste image link or leave blank">
+                    </div>
+                    <button type="submit" class="btn btn-warning btn-sm w-100 fw-bold">Publish to Showroom</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card p-4 shadow-sm border-0 mb-4">
+                <h4 class="fw-bold text-primary mb-3"><i class="fas fa-box-open me-2"></i>Customer Product Orders Queue</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer / Phone</th>
+                                <th>Total Bill</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-orders-table"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card p-4 shadow-sm border-0">
+                <h4 class="fw-bold text-success mb-3"><i class="fas fa-headset me-2"></i>Incoming Service Tickets Queue</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Ticket ID</th>
+                                <th>Client Name</th>
+                                <th>Service Needed</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-tickets-table"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark text-light pt-5 pb-3 mt-5">
+    <div class="container text-center text-md-start">
+        <p class="text-center text-muted small">&copy; 2026 ANDU COMPUTER. Built for High-Performance Delivery.</p>
+    </div>
+</footer>
+
+<script>
+    // Initial Stock Configuration (Loads from Local Storage if available, otherwise defaults)
+    let defaultProducts = [
+        { id: 1, title: "HP ProBook Core i5 (8GB/256GB SSD)", price: 28500, category: "computer", image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=500" },
+        { id: 2, title: "Dell Latitude Premium Business Lap", price: 34000, category: "computer", image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=500" },
+        { id: 3, title: "Hikvision Full HD Smart Dome CCTV", price: 3200, category: "cctv", image: "https://images.unsplash.com/photo-1557863789-3ae626832960?q=80&w=500" },
+        { id: 4, title: "Long-Range Network Bullet IP Camera", price: 4500, category: "cctv", image: "https://images.unsplash.com/photo-1528319725582-ddc096101511?q=80&w=500" }
+    ];
+
+    let productsList = JSON.parse(localStorage.getItem('andu_products')) || defaultProducts;
+    let userShoppingBag = [];
+    let savedOrders = JSON.parse(localStorage.getItem('andu_orders')) || [];
+    let savedTickets = JSON.parse(localStorage.getItem('andu_tickets')) || [];
+
+    function switchView(targetId) {
+        document.querySelectorAll('.view-section').forEach(section => section.classList.remove('active'));
+        document.getElementById(`view-${targetId}`).classList.add('active');
+        window.scrollTo(0,0);
+        if(targetId === 'shop') renderProducts(productsList);
+        if(targetId === 'cart') renderCartItems();
+        if(targetId === 'orders') renderTrackingLogs();
+        if(targetId === 'admin') renderAdminPanels();
+    }
+
+    function renderProducts(items) {
+        const grid = document.getElementById('product-grid');
+        grid.innerHTML = items.map(p => `
+            <div class="col-md-4 col-sm-6">
+                <div class="card h-100 product-card shadow-sm">
+                    <img src="${p.image}" class="card-img-top" style="height:200px; object-fit:cover;" alt="Hardware Image">
+                    <div class="card-body d-flex flex-column justify-content-between text-center">
+                        <h5 class="fw-bold mb-2">${p.title}</h5>
+                        <p class="text-primary fw-bold fs-5">${p.price.toLocaleString()} ETB</p>
+                        <button class="btn btn-primary btn-sm w-100 fw-bold" onclick="addItemToCart(${p.id})"><i class="fas fa-cart-plus me-2"></i>Add to Order</button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function filterCategory(cat) {
+        if(cat === 'all') renderProducts(productsList);
+        else renderProducts(productsList.filter(p => p.category === cat));
+    }
+
+    function addItemToCart(productId) {
+        const targetItem = productsList.find(p => p.id === productId);
+        userShoppingBag.push(targetItem);
+        document.getElementById('cart-badge').innerText = userShoppingBag.length;
+        alert(`Successfully added to cart:\n${targetItem.title}`);
+    }
+
+    function renderCartItems() {
+        const wrapper = document.getElementById('cart-items-container');
+        const priceTag = document.getElementById('cart-total-price');
+        if (userShoppingBag.length === 0) {
+            wrapper.innerHTML = `<div class="p-4 text-center text-muted">Your cart layout is empty.</div>`;
+            priceTag.innerText = "0 ETB";
+            return;
+        }
+        let runningSum = 0;
+        let contentHtml = '<div class="list-group list-group-flush">';
+        userShoppingBag.forEach((item, index) => {
+            runningSum += item.price;
+            contentHtml += `<div class="list-group-item d-flex justify-content-between align-items-center py-3">
+                <div><h6 class="fw-bold mb-0">${item.title}</h6><small class="text-primary fw-semibold">${item.price.toLocaleString()} ETB</small></div>
+                <button class="btn btn-sm btn-outline-danger border-0" onclick="dropCartItem(${index})"><i class="fas fa-trash-alt"></i></button>
+            </div>`;
+        });
+        wrapper.innerHTML = contentHtml + '</div>';
+        priceTag.innerText = runningSum.toLocaleString() + " ETB";
+    }
+
+    function dropCartItem(idx) {
+        userShoppingBag.splice(idx, 1);
+        document.getElementById('cart-badge').innerText = userShoppingBag.length;
+        renderCartItems();
+    }
+
+    function handleCheckout(e) {
+        e.preventDefault();
+        if(userShoppingBag.length === 0) return alert("Your order list is empty!");
+        const orderPackage = {
+            id: 'ORD-' + Math.floor(Math.random() * 90000 + 10000),
+            client: document.getElementById('orderName').value,
+            phone: document.getElementById('orderPhone').value,
+            payment: document.getElementById('orderPayment').value,
+            cost: userShoppingBag.reduce((sum, item) => sum + item.price, 0),
+            status: 'Processing Validation'
+        };
+        savedOrders.unshift(orderPackage);
+        localStorage.setItem('andu_orders', JSON.stringify(savedOrders));
+        userShoppingBag = [];
+        document.getElementById('cart-badge').innerText = 0;
+        document.getElementById('checkoutForm').reset();
+        alert(`Order Placed!\nTrack ID: ${orderPackage.id}`);
+        switchView('orders');
+    }
+
+    function handleRepairSubmit(e) {
+        e.preventDefault();
+        const newTicket = {
+            id: 'TK-' + Math.floor(Math.random() * 90000 + 10000),
+            category: document.getElementById('serviceType').value,
+            name: document.getElementById('clientName').value,
+            phone: document.getElementById('clientPhone').value,
+            details: document.getElementById('issueDescription').value,
+            status: 'Pending Assignment'
+        };
+        savedTickets.unshift(newTicket);
+        localStorage.setItem('andu_tickets', JSON.stringify(savedTickets));
+        document.getElementById('repairForm').reset();
+        alert(`Repair Ticket Registered!\nTicket ID: ${newTicket.id}`);
+        switchView('orders');
+    }
+
+    function renderTrackingLogs() {
+        document.getElementById('track-purchases-list').innerHTML = savedOrders.map(o => `
+            <div class="list-group-item py-3 d-flex justify-content-between align-items-center">
+                <div><span class="fw-bold">${o.id}</span><br><small class="text-muted">Total: ${o.cost.toLocaleString()} ETB</small></div>
+                <span class="badge bg-primary rounded-pill">${o.status}</span>
+            </div>
+        `).join('') || '<p class="text-muted small">No active purchases logged.</p>';
+
+        document.getElementById('track-repairs-list').innerHTML = savedTickets.map(t => `
+            <div class="list-group-item py-3 d-flex justify-content-between align-items-center">
+                <div><span class="fw-bold text-success">${t.id}</span><br><small class="text-dark fw-semibold">${t.category}</small></div>
+                <span class="badge bg-warning text-dark rounded-pill">${t.status}</span>
+            </div>
+        `).join('') || '<p class="text-muted small">No dynamic maintenance requests registered.</p>';
+    }
+
+    // ================= ADMIN ENGINE ACTIONS =================
+    function handleNewProduct(e) {
+        e.preventDefault();
+        const title = document.getElementById('newProdTitle').value;
+        const price = parseFloat(document.getElementById('newProdPrice').value);
+        const category = document.getElementById('newProdCat').value;
+        let image = document.getElementById('newProdImg').value.trim();
+        
+        if(!image) image = "https://images.unsplash.com/photo-1588508065123-287b28e013da?q=80&w=500"; // default fallback
+
+        const newP = { id: Date.now(), title, price, category, image };
+        productsList.push(newP);
+        localStorage.setItem('andu_products', JSON.stringify(productsList));
+        document.getElementById('addProductForm').reset();
+        alert("New product published live successfully!");
+        renderAdminPanels();
+    }
+
+    function changeOrderStatus(orderId) {
+        const order = savedOrders.find(o => o.id === orderId);
+        if(order) {
+            order.status = order.status === 'Processing Validation' ? 'Ready for Pickup / Shipping' : 'Delivered & Closed';
+            localStorage.setItem('andu_orders', JSON.stringify(savedOrders));
+            renderAdminPanels();
+        }
+    }
+
+    function changeTicketStatus(ticketId) {
+        const ticket = savedTickets.find(t => t.id === ticketId);
+        if(ticket) {
+            ticket.status = ticket.status === 'Pending Assignment' ? 'Technician Repairing On-Site' : 'Completed';
+            localStorage.setItem('andu_tickets', JSON.stringify(savedTickets));
+            renderAdminPanels();
+        }
+    }
+
+    function renderAdminPanels() {
+        const ordersTbody = document.getElementById('admin-orders-table');
+        ordersTbody.innerHTML = savedOrders.map(o => `
+            <tr>
+                <td><strong>${o.id}</strong></td>
+                <td>${o.client}<br><small class="text-muted">${o.phone}</small></td>
+                <td><span class="text-primary fw-bold">${o.cost.toLocaleString()} ETB</span></td>
+                <td><span class="badge bg-info text-dark">${o.status}</span></td>
+                <td><button class="btn btn-sm btn-outline-primary py-0" onclick="changeOrderStatus('${o.id}')">Update</button></td>
+            </tr>
+        `).join('') || `<tr><td colspan="5" class="text-center text-muted">No active customer orders queued.</td></tr>`;
+
+        const ticketsTbody = document.getElementById('admin-tickets-table');
+        ticketsTbody.innerHTML = savedTickets.map(t => `
+            <tr>
+                <td><strong class="text-success">${t.id}</strong></td>
+                <td>${t.name}<br><small class="text-muted">${t.phone}</small></td>
+                <td><small class="fw-bold">${t.category}</small></td>
+                <td><span class="badge bg-warning text-dark">${t.status}</span></td>
+                <td><button class="btn btn-sm btn-outline-success py-0" onclick="changeTicketStatus('${t.id}')">Update</button></td>
+            </tr>
+        `).join('') || `<tr><td colspan="5" class="text-center text-muted">No repair tickets submitted.</td></tr>`;
+    }
+
+    // Initial load setup page display
+    renderProducts(productsList);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>s
