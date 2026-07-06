@@ -405,6 +405,9 @@ ${itemsListText}`;
 const alertMessage = encodeURIComponent(alertText);
 
 const telegramApiUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${alertMessage}&parse_mode=Markdown`;
+
+// We added fetch(telegramApiUrl) here to attach the .then() correctly
+fetch(telegramApiUrl)
     .then(response => {
         if (response.ok) {
             alert(`Order Sent Successfully!\nTrack ID: ${orderId}`);
