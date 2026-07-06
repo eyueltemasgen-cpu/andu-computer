@@ -521,8 +521,9 @@ const telegramApiUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?cha
         `).join('') || `<tr><td colspan="5" class="text-center text-muted">No repair tickets submitted.</td></tr>`;
     }
 
-    // Initial load setup page display
-    renderProducts(productsList);
+// Initial load setup page display
+renderProducts(productsList);
+
 // Admin Panel Management functions
 function openAdminPanel() {
     document.getElementById('adminPanelModal').style.display = 'flex';
